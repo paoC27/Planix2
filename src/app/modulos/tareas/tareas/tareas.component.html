@@ -1,0 +1,41 @@
+<h2 class="titulo-tareas">Tareas</h2>
+<button class="agregar-tarea-btn" (click)="abrirModal()">Agregar Tarea</button>
+
+<!-- filtros -->
+<div class="filtros">
+  <select [(ngModel)]="estadoFiltro">
+    <option value="todos">Todos</option>
+    <option value="pendiente">Pendientes</option>
+    <option value="realizada">Realizadas</option>
+  </select>
+
+  <input type="text" [(ngModel)]="buscarTitulo" placeholder="Buscar por título" />
+</div>
+
+<h2 class="titulo-tareas">Lista de Tareas:</h2>
+
+<ul class="lista-tareas">
+  <li *ngFor="let tarea of tareasFiltradas" class="tarea-item">
+    <div class="estado-y-boton">
+      <div [ngClass]="{'linea-roja': tarea.estado === 'pendiente', 'linea-verde': tarea.estado === 'realizada'}"></div>
+      <button *ngIf="tarea.estado === 'pendiente'" (click)="marcarComoRealizada(tarea.id!)" class="btn-marcar-realizada">Marcar como Realizada</button>
+    </div>
+
+    <h3>{{ tarea.titulo }}</h3>
+    <p>{{ tarea.descripcion }}</p>
+    <p><strong>Fecha:</strong> {{ tarea.fecha | date }}</p>
+    <p><strong>Estado:</strong> {{ tarea.estado }}</p>
+
+    <div class="botones-tarea">
+      <button (click)="editarTarea(tarea)" class="btn-actualizar">Editar</button>
+      <button class="eliminar-btn" (click)="eliminarTarea(tarea.id!)">Eliminar</button>
+    </div>
+  </li>
+</ul>
+
+<app-modal-tarea 
+  [tareaParaEditar]="tareaParaEditar"
+  (tareaCreada)="agregarTarea($event)" 
+  (closeModal)="cerrarModal()" 
+  *ngIf="mostrarModal">
+</app-modal-tarea>

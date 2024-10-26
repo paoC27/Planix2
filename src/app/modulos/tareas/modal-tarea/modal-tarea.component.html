@@ -1,0 +1,34 @@
+<div class="superficie-modal" (click)="close()">
+    <div class="contenido-modal" (click)="$event.stopPropagation()">
+      <span class="cerrar" (click)="close()">&times;</span>
+      <h2 class="modal-titulo">{{ tareaParaEditar ? 'Actualizar Tarea' : 'Agregar Tarea' }}</h2> <!-- Cambiar el título dinámicamente -->
+  
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="modal-form">
+        <div class="form-group">
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" name="titulo" [(ngModel)]="tarea.titulo" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" name="fecha" [(ngModel)]="tarea.fecha" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" name="descripcion" [(ngModel)]="tarea.descripcion" required></textarea>
+        </div>
+  
+        <div class="botones-formulario">
+          <button type="button" class="btn-cancelar" (click)="close()">Cancelar</button>
+          <button type="submit" class="btn-crear">{{ tareaParaEditar ? 'Actualizar Tarea' : 'Crear Tarea' }}</button> <!-- Cambiar el texto dinámicamente -->
+        </div>
+      </form>
+  
+      <div *ngIf="tarea" class="tarea-creada" style="display: none;">
+        <p>Tarea creada: <strong>{{ tarea.titulo }}</strong></p>
+        <button (click)="marcarComoRealizada()" class="btn-marcar">Marcar como realizada</button>
+      </div>
+    </div>
+  </div>
+  

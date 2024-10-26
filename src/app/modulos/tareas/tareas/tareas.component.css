@@ -1,0 +1,107 @@
+.titulo-tareas {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #1e3a63;
+}
+
+.agregar-tarea-btn {
+    background-color: #1e3a63;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 0 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+.agregar-tarea-btn:hover {
+    background-color: #3b4a7b;
+}
+
+.lista-tareas {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tarea-item {
+    background-color: #f1f1f1;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.eliminar-btn {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.eliminar-btn:hover {
+    background-color: #ff1a1a;
+}
+
+.linea-roja {
+    height: 5px;
+    background-color: red;
+    margin-bottom: 10px;
+}
+
+.linea-verde {
+    height: 5px;
+    background-color: green;
+    margin-bottom: 10px;
+}
+
+.btn-marcar-realizada {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-marcar-realizada:hover {
+    background-color: #218838;
+}
+
+.btn-marcar-realizada:focus {
+    outline: none;
+}
+
+.filtros {
+    margin-bottom: 20px;
+}
+
+.filtros select,
+.filtros input {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.botones-tarea button {
+    padding: 8px 12px;
+    margin: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-actualizar {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+.btn-actualizar:hover {
+    background-color: #005bb5;
+}
